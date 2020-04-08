@@ -1,15 +1,27 @@
 module.exports = {
-  parser: "@typescript-eslint/parser",
-  extends: [
-    "plugin:@typescript-eslint/recommended"
-  ],
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": ["plugin:@typescript-eslint/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     }
   },
-  rules: {
-    // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-    // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"]
   }
 };
