@@ -1,0 +1,14 @@
+%forms-input {
+  align-items: center;
+  //border: 1px solid var(--primary-color);
+  border-radius: var(--radius);
+  //box-shadow: var(--shadow);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  height: var(--input-height);
+  justify-content: flex-start;
+  letter-spacing: 1px;
+  padding: 0 var(--small);
+  position: relative;
+}
