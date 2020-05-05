@@ -1,15 +1,24 @@
-// import { text } from '@storybook/addon-knobs'
-
-export default {
-  title: 'Select',
-}
-
-export const SelectOptionComponent = () => {
-  return `<mrb-select-option> </mrb-select-option>`
-}
+// import '../www/build/stenbook.css'
+// import { select } from '@storybook/addon-knobs'
 //
-// export const MyComponent = () => {
-//   const firstName = text('First name', 'Stencil')
-//   const middleName = text('Middle name', 'Storybook')
-//   const lastName = text('Last name', 'Starter')
+// export default {
+//   title: 'Select',
 // }
+//
+// const label: 'Planets'
+//
+// const options = select('Planets', [])
+//
+//
+// export const SelectComponent = () => {
+//   return `<mrb-select-option>
+//                 <mrb-select-option onClickOption={(ev) => console.log(ev)}>
+//                     ${name.}
+//                 </mrb-select-option>
+//         </mrb-select-option>`
+// }
+//
+// //
+// // export const MyComponent = () => {
+//
+// // }

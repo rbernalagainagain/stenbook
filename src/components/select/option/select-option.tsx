@@ -21,9 +21,11 @@ export class SelectOptionComponent implements ComponentInterface {
   @Element() el!: HTMLElement
 
   @Prop() value?: Value
-  @Prop({ reflect: true }) role: string = 'option'
+  @Prop({ reflect: true, mutable: false }) role: string = 'option'
 
   @Event({ bubbles: true }) clickOption: EventEmitter<Value>
+
+  @Listen('click')
   clickOptionHandler() {
     this.value = this.value || this.el.textContent
     this.clickOption.emit(this.value)
@@ -35,6 +37,6 @@ export class SelectOptionComponent implements ComponentInterface {
   }
 
   render() {
-    return <Host onClick={() => this.clickOptionHandler()}></Host>
+    return <Host></Host>
   }
 }

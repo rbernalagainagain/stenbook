@@ -1,8 +1,10 @@
-import { Component, ComponentInterface, h } from '@stencil/core'
+import { Component, ComponentInterface, h, Element } from '@stencil/core'
 import { getSolarSystem, Planet } from './utils/utils'
 
 @Component({ tag: 'app-root', styleUrl: 'app.page.scss', shadow: true })
 export class AppPage implements ComponentInterface {
+  @Element() el: HTMLElement
+
   options!: Planet[]
 
   async componentWillLoad() {
@@ -13,13 +15,7 @@ export class AppPage implements ComponentInterface {
     return [
       <mrb-select label={'planets'}>
         {this.options.map((x) => (
-          <mrb-select-option
-            onClickOption={(ev) => {
-              console.log(ev)
-            }}
-          >
-            {x.name}
-          </mrb-select-option>
+          <mrb-select-option>{x.name}</mrb-select-option>
         ))}
       </mrb-select>,
     ]

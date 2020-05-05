@@ -21,7 +21,7 @@ export class SelectComponent implements ComponentInterface {
   @Element() el: HTMLElement
 
   @Prop() label!: string
-  @Prop({ attribute: 'id', reflect: true }) idOption?: string = 'combobox'
+  @Prop({ attribute: 'id' }) idOption?: string = 'combobox'
 
   @State() value: string
   @State() icon: string = 'caret-down-outline'
@@ -29,7 +29,7 @@ export class SelectComponent implements ComponentInterface {
   @Event() changeVisibilityOption: EventEmitter<boolean>
 
   input!: HTMLInputElement
-  div!: HTMLDivElement
+  divCombobox!: HTMLDivElement
   isExpanded: boolean = false
   options: any[]
 
@@ -61,7 +61,7 @@ export class SelectComponent implements ComponentInterface {
       <Host>
         <div
           class={{ combobox: true }}
-          ref={(el: HTMLDivElement) => (this.div = el)}
+          ref={(el: HTMLDivElement) => (this.divCombobox = el)}
           role="combobox"
         >
           <label>{this.label}</label>
@@ -85,7 +85,7 @@ export class SelectComponent implements ComponentInterface {
     )
   }
 
-  private isShowList() {
+  private isShowList(): void {
     if (!this.isExpanded) {
       this.openList()
     } else {
@@ -94,12 +94,12 @@ export class SelectComponent implements ComponentInterface {
     this.isExpanded = !this.isExpanded
   }
 
-  private closeList() {
+  private closeList(): void {
     this.icon = 'caret-down-outline'
     this.changeVisibilityOption.emit(false)
   }
 
-  private openList() {
+  private openList(): void {
     this.icon = 'caret-up-outline'
     this.changeVisibilityOption.emit(true)
   }

@@ -15,22 +15,9 @@
 
 ## Events
 
-| Event      | Description | Type               |
-| ---------- | ----------- | ------------------ |
-| `sayHello` |             | `CustomEvent<any>` |
-
-
-## Methods
-
-### `getValue() => Promise<Value>`
-
-
-
-#### Returns
-
-Type: `Promise<Value>`
-
-
+| Event         | Description | Type                            |
+| ------------- | ----------- | ------------------------------- |
+| `clickOption` |             | `CustomEvent<number \| string>` |
 
 
 ## Dependencies
