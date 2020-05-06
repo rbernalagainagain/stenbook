@@ -12,6 +12,8 @@ import {
   Watch,
 } from '@stencil/core'
 
+export type Visible = boolean
+
 @Component({
   tag: 'mrb-select',
   styleUrl: 'select.scss',
@@ -26,7 +28,7 @@ export class SelectComponent implements ComponentInterface {
   @State() value: string
   @State() icon: string = 'caret-down-outline'
 
-  @Event() changeVisibilityOption: EventEmitter<boolean>
+  @Event() changeVisibilityOption: EventEmitter<Visible>
 
   input!: HTMLInputElement
   divCombobox!: HTMLDivElement

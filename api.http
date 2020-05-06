@@ -1,0 +1,3 @@
+GET https://{{host}}
+Accept: */*
+Cache-Control: no-cache

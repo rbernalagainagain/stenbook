@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Visible, } from "./components/select/select";
 import { Value, } from "./components/select/option/select-option";
 export namespace Components {
     interface AppRoot {
@@ -70,7 +71,7 @@ declare namespace LocalJSX {
     interface MrbSelect {
         "idOption"?: string;
         "label": string;
-        "onChangeVisibilityOption"?: (event: CustomEvent<boolean>) => void;
+        "onChangeVisibilityOption"?: (event: CustomEvent<Visible>) => void;
     }
     interface MrbSelectOption {
         "onClickOption"?: (event: CustomEvent<Value>) => void;
