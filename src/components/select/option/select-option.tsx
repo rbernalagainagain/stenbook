@@ -9,13 +9,12 @@ import {
   Listen,
   Prop,
 } from '@stencil/core'
-
-export type Value = string | number
+import { Value } from '../../../types/value'
 
 @Component({
   tag: 'mrb-select-option',
   styleUrl: 'select-option.scss',
-  scoped: true,
+  shadow: true,
 })
 export class SelectOptionComponent implements ComponentInterface {
   @Element() el!: HTMLElement
@@ -23,17 +22,11 @@ export class SelectOptionComponent implements ComponentInterface {
   @Prop() value?: Value
   @Prop({ reflect: true }) role: string = 'option'
 
-  @Event({ bubbles: true }) clickOption: EventEmitter<Value>
+  @Event() clickOption: EventEmitter<string>
 
   @Listen('click')
   clickOptionHandler() {
-    this.value = this.value || this.el.textContent
-    this.clickOption.emit(this.value)
-  }
-
-  @Listen('changeVisibilityOption', { target: 'parent' })
-  changeVisibilityOptionHandler({ detail }: MouseEvent) {
-    detail ? (this.el.style.display = 'flex') : (this.el.style.display = 'none')
+    this.clickOption.emit(this.value || this.el.textContent)
   }
 
   render() {

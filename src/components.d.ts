@@ -6,13 +6,15 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Visible, } from "./components/select/select";
-import { Value, } from "./components/select/option/select-option";
+import { Value, } from "./types/value";
 export namespace Components {
     interface AppRoot {
     }
     interface MrbSelect {
         "idOption"?: string;
         "label": string;
+        "name": string;
+        "options": any[];
     }
     interface MrbSelectOption {
         "role": string;
@@ -71,10 +73,12 @@ declare namespace LocalJSX {
     interface MrbSelect {
         "idOption"?: string;
         "label": string;
+        "name"?: string;
         "onChangeVisibilityOption"?: (event: CustomEvent<Visible>) => void;
+        "options"?: any[];
     }
     interface MrbSelectOption {
-        "onClickOption"?: (event: CustomEvent<Value>) => void;
+        "onClickOption"?: (event: CustomEvent<string>) => void;
         "role"?: string;
         "value"?: Value;
     }

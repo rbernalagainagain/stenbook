@@ -12,12 +12,6 @@ export class AppPage implements ComponentInterface {
   }
 
   render() {
-    return [
-      <mrb-select label={'planets'}>
-        {this.options.map((x) => (
-          <mrb-select-option>{x.name}</mrb-select-option>
-        ))}
-      </mrb-select>,
-    ]
+    return <mrb-select label={'solar system'} options={this.options} />
   }
 }

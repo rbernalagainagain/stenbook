@@ -35,6 +35,8 @@
   .icon {
     color: var(--gray-500-color);
     margin-left: auto;
+    cursor: pointer;
+
   }
 
   .options-list {
@@ -56,7 +58,7 @@
     }
   }
 
-  .options-list ::slotted(*) {
+  .options-list > * {
     @extend %forms-input;
 
     border: 0;

@@ -2,6 +2,10 @@ export function format(first: string, middle: string, last: string): string {
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '')
 }
 
+export const hasShadowDom = (el: HTMLElement) => {
+  return el.shadowRoot && !!(el as any).attachShadow
+}
+
 export interface Planet {
   id: string
   name: string
@@ -11,17 +15,18 @@ export interface Planet {
 }
 
 function transform(solarSystem: any): Planet[] {
-  return solarSystem.bodies
-    // .filter((x) => x.isPlanet)
-    .map((x) => {
-      return {
-        id: x.id,
-        name: x.englishName,
-        discoveredBy: x.discoveredBy,
-        discoveryDate: x.discoveryDate,
-        gravity: x.discoveryDate,
-      }
-    })
+  return (
+    solarSystem.bodies
+      .map((x) => {
+        return {
+          id: x.id,
+          name: x.englishName,
+          discoveredBy: x.discoveredBy,
+          discoveryDate: x.discoveryDate,
+          gravity: x.discoveryDate,
+        }
+      })
+  )
 }
 
 export async function getSolarSystem(): Promise<Planet[]> {

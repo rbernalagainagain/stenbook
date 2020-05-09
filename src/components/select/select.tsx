@@ -9,31 +9,32 @@ import {
   Listen,
   Prop,
   State,
-  Watch,
 } from '@stencil/core'
+import { hasShadowDom } from '../../utils/utils'
 
 export type Visible = boolean
 
 @Component({
   tag: 'mrb-select',
   styleUrl: 'select.scss',
-  shadow: true,
+  scoped: true,
 })
 export class SelectComponent implements ComponentInterface {
   @Element() el: HTMLElement
 
   @Prop() label!: string
+  @Prop() name: string = 'hola'
+  @Prop() options: any[]
   @Prop({ attribute: 'id' }) idOption?: string = 'combobox'
 
   @State() value: string
   @State() icon: string = 'caret-down-outline'
+  @State() isExpanded: boolean = false
 
   @Event() changeVisibilityOption: EventEmitter<Visible>
 
   input!: HTMLInputElement
-  divCombobox!: HTMLDivElement
-  isExpanded: boolean = false
-  options: any[]
+  optionsValues: any[]
 
   @Listen('clickOption')
   async onChange({ detail }) {
@@ -41,31 +42,37 @@ export class SelectComponent implements ComponentInterface {
     this.isShowList()
   }
 
-  @Watch('value')
-  hasMatchOption() {
-    this.options.forEach((x) => {
-      if (!x.textContent.toLowerCase().includes(this.value.toLowerCase())) {
-        x.style.display = 'none'
-      } else {
-        this.icon = 'caret-up-outline'
-        x.style.display = 'flex'
-        this.isExpanded = true
-      }
-    })
+  // @Watch('value')
+  // hasMatchOption() {
+  //   this.optionsValues.forEach((x) => {
+  //     if (!x.textContent.toLowerCase().includes(this.value.toLowerCase())) {
+  //       x.style.display = 'none'
+  //     } else {
+  //       this.icon = 'caret-up-outline'
+  //       x.style.display = 'flex'
+  //       this.isExpanded = true
+  //     }
+  //   })
+  // }
+
+  componentWillLoad(): Promise<void> | void {
+    console.log('Padre, con el empezó todo')
   }
 
-  componentWillLoad() {
-    this.options = Array.from(this.el.querySelectorAll('mrb-select-option'))
+  componentDidLoad() {
+    this.optionsValues = Array.from(
+      this.el.shadowRoot.querySelectorAll('mrb-select-option')
+    )
+    console.log(this.optionsValues)
+    if (hasShadowDom(this.el)) console.log('Padre, con el terminó todo')
   }
 
   render() {
+    console.count()
+
     return (
       <Host>
-        <div
-          class={{ combobox: true }}
-          ref={(el: HTMLDivElement) => (this.divCombobox = el)}
-          role="combobox"
-        >
+        <div class={{ combobox: true }} role="combobox">
           <label>{this.label}</label>
           <input
             type="text"
@@ -81,7 +88,12 @@ export class SelectComponent implements ComponentInterface {
           />
         </div>
         <div class={{ 'options-list': true, 'is-expanded': this.isExpanded }}>
-          <slot></slot>
+          {
+            // this.isExpanded &&
+            this.options.map((option) => (
+              <mrb-select-option>{option.name}</mrb-select-option>
+            ))
+          }
         </div>
       </Host>
     )
@@ -98,11 +110,9 @@ export class SelectComponent implements ComponentInterface {
 
   private closeList(): void {
     this.icon = 'caret-down-outline'
-    this.changeVisibilityOption.emit(false)
   }
 
   private openList(): void {
     this.icon = 'caret-up-outline'
-    this.changeVisibilityOption.emit(true)
   }
 }
