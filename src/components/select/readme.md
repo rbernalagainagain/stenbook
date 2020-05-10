@@ -11,6 +11,7 @@
 | -------------------- | --------- | ----------- | -------- | ------------ |
 | `idOption`           | `id`      |             | `string` | `'combobox'` |
 | `label` _(required)_ | `label`   |             | `string` | `undefined`  |
+| `options`            | --        |             | `any[]`  | `undefined`  |
 
 
 ## Events
@@ -26,9 +27,14 @@
 
  - [app-root](../..)
 
+### Depends on
+
+- [mrb-select-option](option)
+
 ### Graph
 ```mermaid
 graph TD;
+  mrb-select --> mrb-select-option
   app-root --> mrb-select
   style mrb-select fill:#f9f,stroke:#333,stroke-width:4px
 ```

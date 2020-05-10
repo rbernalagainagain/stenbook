@@ -9,7 +9,7 @@ import {
   Listen,
   Prop,
 } from '@stencil/core'
-import { Value } from '../../../types/value'
+import {Value} from '../../../types/value'
 
 @Component({
   tag: 'mrb-select-option',
@@ -20,12 +20,13 @@ export class SelectOptionComponent implements ComponentInterface {
   @Element() el!: HTMLElement
 
   @Prop() value?: Value
-  @Prop({ reflect: true }) role: string = 'option'
+  @Prop({reflect: true}) role = 'option'
 
   @Event() clickOption: EventEmitter<string>
 
   @Listen('click')
   clickOptionHandler() {
+    this.el.setAttribute('aria-selected', 'true')
     this.clickOption.emit(this.value || this.el.textContent)
   }
 

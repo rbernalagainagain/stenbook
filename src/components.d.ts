@@ -13,7 +13,6 @@ export namespace Components {
     interface MrbSelect {
         "idOption"?: string;
         "label": string;
-        "name": string;
         "options": any[];
     }
     interface MrbSelectOption {
@@ -73,7 +72,6 @@ declare namespace LocalJSX {
     interface MrbSelect {
         "idOption"?: string;
         "label": string;
-        "name"?: string;
         "onChangeVisibilityOption"?: (event: CustomEvent<Visible>) => void;
         "options"?: any[];
     }

@@ -7,29 +7,29 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type               | Default     |
-| -------- | --------- | ----------- | ------------------ | ----------- |
-| `role`   | `role`    |             | `string`           | `'option'`  |
-| `value`  | `value`   |             | `number \| string` | `undefined` |
+| Property | Attribute | Description | Type     | Default     |
+| -------- | --------- | ----------- | -------- | ----------- |
+| `role`   | `role`    |             | `string` | `'option'`  |
+| `value`  | `value`   |             | `any`    | `undefined` |
 
 
 ## Events
 
-| Event         | Description | Type                            |
-| ------------- | ----------- | ------------------------------- |
-| `clickOption` |             | `CustomEvent<number \| string>` |
+| Event         | Description | Type                  |
+| ------------- | ----------- | --------------------- |
+| `clickOption` |             | `CustomEvent<string>` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [app-root](../../..)
+ - [mrb-select](..)
 
 ### Graph
 ```mermaid
 graph TD;
-  app-root --> mrb-select-option
+  mrb-select --> mrb-select-option
   style mrb-select-option fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

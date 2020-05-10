@@ -10,26 +10,25 @@ import {
   Prop,
   State,
 } from '@stencil/core'
-import { hasShadowDom } from '../../utils/utils'
+import {hasShadowDom} from '../../utils/utils'
 
 export type Visible = boolean
 
 @Component({
   tag: 'mrb-select',
   styleUrl: 'select.scss',
-  scoped: true,
+  shadow: true,
 })
 export class SelectComponent implements ComponentInterface {
   @Element() el: HTMLElement
 
-  @Prop() label!: string
-  @Prop() name: string = 'hola'
   @Prop() options: any[]
-  @Prop({ attribute: 'id' }) idOption?: string = 'combobox'
+  @Prop() label!: string
+  @Prop({attribute: 'id'}) idOption?: string = 'combobox'
 
   @State() value: string
-  @State() icon: string = 'caret-down-outline'
-  @State() isExpanded: boolean = false
+  @State() icon = 'caret-down-outline'
+  @State() isExpanded = false
 
   @Event() changeVisibilityOption: EventEmitter<Visible>
 
@@ -37,7 +36,7 @@ export class SelectComponent implements ComponentInterface {
   optionsValues: any[]
 
   @Listen('clickOption')
-  async onChange({ detail }) {
+  async onChange({detail}) {
     this.value = detail
     this.isShowList()
   }
@@ -55,13 +54,9 @@ export class SelectComponent implements ComponentInterface {
   //   })
   // }
 
-  componentWillLoad(): Promise<void> | void {
-    console.log('Padre, con el empezó todo')
-  }
-
   componentDidLoad() {
     this.optionsValues = Array.from(
-      this.el.shadowRoot.querySelectorAll('mrb-select-option')
+      this.el.shadowRoot.querySelectorAll('mrb-select-option'),
     )
     console.log(this.optionsValues)
     if (hasShadowDom(this.el)) console.log('Padre, con el terminó todo')
@@ -69,10 +64,9 @@ export class SelectComponent implements ComponentInterface {
 
   render() {
     console.count()
-
     return (
       <Host>
-        <div class={{ combobox: true }} role="combobox">
+        <div class={{combobox: true}} role="combobox">
           <label>{this.label}</label>
           <input
             type="text"
@@ -87,13 +81,10 @@ export class SelectComponent implements ComponentInterface {
             onClick={this.isShowList.bind(this)}
           />
         </div>
-        <div class={{ 'options-list': true, 'is-expanded': this.isExpanded }}>
-          {
-            // this.isExpanded &&
-            this.options.map((option) => (
-              <mrb-select-option>{option.name}</mrb-select-option>
-            ))
-          }
+        <div class={{'options-list': true, 'is-expanded': this.isExpanded}}>
+          {this.options.map((option) => (
+            <mrb-select-option>{option.name}</mrb-select-option>
+          ))}
         </div>
       </Host>
     )

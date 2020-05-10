@@ -22,9 +22,14 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "check-types": "tsc",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|ts|tsx|json)\"",
+    "format": "npm run prettier -- --write",
+    "check-format": "npm run prettier -- --list-different",
     "story": "npm-run-all --parallel start.watch storybook",
-    "storybook": "start-storybook -p 6006 -c .storybook -s www"
+    "storybook": "start-storybook -p 6006 -c .storybook -s www",
+    "validate": "npm run check-types && npm run lint && npm run build"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
