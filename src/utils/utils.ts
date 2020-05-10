@@ -42,6 +42,6 @@ export async function getSolarSystem(): Promise<Planet[]> {
       .then((response) => response.json())
       .then(transform)
   } catch (error) {
-    throw error
+    throw console.log(error)
   }
 }

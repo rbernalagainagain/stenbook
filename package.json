@@ -23,7 +23,7 @@
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "check-types": "tsc",
+    "check-types": "tsc --noEmit",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|ts|tsx|json)\"",
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --list-different",

@@ -1,3 +1,5 @@
 # Ignore built files except build/index.js
 www/build/*
 dist/*
+loader/*
+stories/*
