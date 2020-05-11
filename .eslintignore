@@ -1,5 +1,6 @@
 # Ignore built files except build/index.js
-www/build/*
+www/**/*
 dist/*
 loader/*
 stories/*
+src/*.d.ts
