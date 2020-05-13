@@ -28,7 +28,7 @@
     "format": "npm run prettier -- --write",
     "story": "npm-run-all --parallel start.watch storybook",
     "storybook": "start-storybook -p 6006 -c .storybook -s www",
-    "validate": "npm-run-all --parallel check-types format lint build"
+    "validate": "npm-run-all --parallel check-types test format lint build"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -52,11 +52,7 @@
     "npm-check-updates": "^5.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
-    "puppeteer": "3.0.4",
-    "stylelint": "^13.3.3",
-    "stylelint-config-sass-guidelines": "^7.0.0",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.17.2"
+    "puppeteer": "3.0.4"
   },
   "license": "MIT",
   "dependencies": {}

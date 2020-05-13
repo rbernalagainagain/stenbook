@@ -55,14 +55,41 @@ export class SelectComponent implements ComponentInterface {
   // }
 
   componentDidLoad() {
-    this.optionsValues = Array.from(
-      this.el.shadowRoot.querySelectorAll('mrb-select-option'),
-    )
-    console.log(this.optionsValues)
-    if (hasShadowDom(this.el)) console.log('Padre, con el terminó todo')
+    this.changeHiddenOptionToVisible()
+  }
+
+  // this.optionsValues = Array.from(
+  //   this.el.shadowRoot.querySelectorAll('mrb-select-option'),
+  // )
+  //   const container = this.el.shadowRoot.querySelector(
+  //     '.options-list',
+  //   ) as HTMLElement
+  //   const input = container.ownerDocument!.createElement('input')
+  //   input.value = 'sd'
+  //   container.appendChild(input)
+  // }
+
+  changeHiddenOptionToVisible() {
+    if (hasShadowDom(this.el)) {
+      const container = this.el.shadowRoot.querySelector(
+        '.options-list',
+      ) as HTMLElement
+
+      if (container) {
+        this.options.forEach((x) => {
+          const li = container.ownerDocument!.createElement('mrb-select-option')
+          console.log(x.name)
+          li.shadowRoot.textContent = x.name
+          li.style.display = 'none'
+          container.appendChild(li)
+        })
+      }
+    }
   }
 
   render() {
+    // const {options} = this
+
     console.count()
     return (
       <Host>
@@ -82,9 +109,9 @@ export class SelectComponent implements ComponentInterface {
           />
         </div>
         <div class={{'options-list': true, 'is-expanded': this.isExpanded}}>
-          {this.options.map((option) => (
-            <mrb-select-option>{option.name}</mrb-select-option>
-          ))}
+          {/*{this.options.map((option) => (*/}
+          {/*  <mrb-select-option>{option.name}</mrb-select-option>*/}
+          {/*))}*/}
         </div>
       </Host>
     )
