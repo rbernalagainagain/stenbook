@@ -1,80 +1,93 @@
 :host {
-  --line-height: calc(var(--body-size) * 1.8);
-  --input-height: calc(var(--line-height) * 2);
+  --line-height: 1.2;
 
-  box-sizing: content-box;
-  font-family: var(--font);
-  font-size: var(--body-size);
-  letter-spacing: 1px;
+  background-color: var(--white-color);
+  display: grid;
+  grid-template: auto / 1fr min-content;
+  grid-gap: var(--extra-small);
+  grid-template-areas: 'input icon';
   position: relative;
-
-  .combobox {
-    background-color: var(--white-color);
-    @extend %forms-input;
-  }
-
-  .combobox > * + * {
-    margin-left: var(--small);
-  }
-
-  label {
-    background-color: var(--white-color);
-    color: var(--gray-color);
-    //position: absolute;
-    text-transform: capitalize;
-  }
-
-  input {
-    background-color: var(--white-color);
-    border: 0;
-    font-size: var(--body-size);
-    line-height: var(--line-height);
-    margin-bottom: 2px;
-  }
-
-  .icon {
-    color: var(--gray-500-color);
-    margin-left: auto;
-    cursor: pointer;
-
-  }
-
-  .options-list {
-    background-color: var(--white-color);
-    border-radius: var(--radius);
-    box-sizing: border-box;
-    list-style: none;
-    margin-top: var(--extra-small);
-    max-height: calc(var(--input-height) * 4.1);
-    overflow: scroll;
-    padding: var(--extra-small);
-    position: absolute;
-    width: 100%;
-    &.is-expanded {
-      box-shadow: var(--shadow);
-    }
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  .options-list > * {
-    align-items: center;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    height: var(--input-height);
-    justify-content: flex-start;
-    letter-spacing: 1px;
-    padding: 0 var(--small);
-    position: relative;
-
-    border: 0;
-    border-bottom: 1.5px solid var(--gray-300-color);
-    box-shadow: none;
-    cursor: pointer;
-    height: calc(var(--line-height) * 1.5);
-    margin: 0 var(--extra-small);
-  }
-
+  align-items: center;
+  padding: var(--small);
+  border-radius: var(--radius);
 }
+
+.input-combobox {
+  grid-area: input;
+  border: 0;
+  font-size: 1rem;
+  height: calc(var(--body-size) * var(--line-height));
+  line-height: var(--line-height);
+  //border: 1px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.options-list {
+  position: absolute;
+  border-radius: var(--radius);
+  box-sizing: border-box;
+  list-style: none;
+  //margin-top: var(--extra-small);
+  max-height: calc(var(--input-height) * 4.1);
+  overflow: scroll;
+  padding: var(--extra-small);
+  width: 100%;
+  //top: calc(var(--body-size) * var(--line-height));
+}
+
+//.combobox > * + * {
+//  margin-left: var(--small);
+//}
+
+//label {
+//  background-color: var(--white-color);
+//  color: var(--gray-color);
+//  //position: absolute;
+//  text-transform: capitalize;
+//}
+
+//input {
+//  background-color: var(--white-color);
+//  border: 0;
+//  font-size: var(--body-size);
+//  line-height: var(--line-height);
+//}
+//
+//.icon {
+//  color: var(--gray-500-color);
+//  margin-left: auto;
+//  cursor: pointer;
+//}
+//
+
+//  &.is-expanded {
+//    box-shadow: var(--shadow);
+//  }
+//  &::-webkit-scrollbar {
+//    display: none;
+//  }
+//}
+//
+//.options-list > * {
+//  align-items: center;
+//  box-sizing: border-box;
+//  display: flex;
+//  flex-direction: row;
+//  height: var(--input-height);
+//  justify-content: flex-start;
+//  letter-spacing: 1px;
+//  padding: 0 var(--small);
+//  position: relative;
+//
+//  border: 0;
+//  //border-bottom: 1.5px solid var(--gray-300-color);
+//  box-shadow: none;
+//  cursor: pointer;
+//  height: calc(var(--line-height) * 1.5);
+//  margin: 0 var(--extra-small);
+//}

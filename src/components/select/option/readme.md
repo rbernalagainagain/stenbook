@@ -1,9 +1,6 @@
 # mrb-select-option
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -12,27 +9,12 @@
 | `role`   | `role`    |             | `string` | `'option'`  |
 | `value`  | `value`   |             | `any`    | `undefined` |
 
-
 ## Events
 
 | Event         | Description | Type                  |
 | ------------- | ----------- | --------------------- |
 | `clickOption` |             | `CustomEvent<string>` |
 
+---
 
-## Dependencies
-
-### Used by
-
- - [mrb-select](..)
-
-### Graph
-```mermaid
-graph TD;
-  mrb-select --> mrb-select-option
-  style mrb-select-option fill:#f9f,stroke:#333,stroke-width:4px
-```
-
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

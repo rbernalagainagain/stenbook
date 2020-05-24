@@ -12,6 +12,6 @@ export class AppPage implements ComponentInterface {
   }
 
   render() {
-    return <mrb-select label={'solar system'} options={this.options} />
+    return <mrb-select options={this.options} />
   }
 }

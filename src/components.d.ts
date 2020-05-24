@@ -5,13 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import {HTMLStencilElement, JSXBase} from '@stencil/core/internal'
-import {Visible} from './components/select/select'
 import {Value} from './types/value'
 export namespace Components {
   interface AppRoot {}
   interface MrbSelect {
-    idOption?: string
-    label: string
     options: any[]
   }
   interface MrbSelectOption {
@@ -70,9 +67,6 @@ declare global {
 declare namespace LocalJSX {
   interface AppRoot {}
   interface MrbSelect {
-    idOption?: string
-    label: string
-    onChangeVisibilityOption?: (event: CustomEvent<Visible>) => void
     options?: any[]
   }
   interface MrbSelectOption {

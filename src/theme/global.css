@@ -1,5 +1,6 @@
 :root {
   /* Spacing */
+
   --unit: 0.5rem;
   --extra-small: calc(var(--unit) * 1);
   --small: calc(var(--unit) * 1.5);
@@ -15,9 +16,9 @@
 
   /* Fonts */
   --font: 'Montserrat', sans-serif;
-  --title-size: 18px;
-  --subtitle-size: 11px;
-  --body-size: 16px;
+  --body-size: 1rem;
+  --title-size: 1.125rem;
+  --subtitle-size: 7.5rem;
 
   /* Principal Colors */
   --primary-color: hsl(210, 55%, 45%);
@@ -38,3 +39,15 @@
   /* Shadows */
   --shadow: 0 2px 7px 1px hsla(240, 1%, 86%, 0.65);
 }
+
+html {
+  font-size: 100%;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+

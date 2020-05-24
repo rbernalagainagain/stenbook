@@ -16,7 +16,7 @@ import {Value} from '../../../types/value'
   styleUrl: 'select-option.scss',
   shadow: true,
 })
-export class SelectOptionComponent implements ComponentInterface {
+export class SelectOption implements ComponentInterface {
   @Element() el!: HTMLElement
 
   @Prop() value?: Value
@@ -31,6 +31,6 @@ export class SelectOptionComponent implements ComponentInterface {
   }
 
   render() {
-    return <Host></Host>
+    return <Host tabindex={0} />
   }
 }
