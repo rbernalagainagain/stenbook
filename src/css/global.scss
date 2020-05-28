@@ -1,3 +1,8 @@
+/* Basic CSS for apps built */
+@import 'structure.css';
+@import 'normalize.css';
+@import 'typography.css';
+
 :root {
   /* Spacing */
 
@@ -39,15 +44,3 @@
   /* Shadows */
   --shadow: 0 2px 7px 1px hsla(240, 1%, 86%, 0.65);
 }
-
-html {
-  font-size: 100%;
-}
-
-body {
-  align-items: center;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-}
-

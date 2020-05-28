@@ -3,7 +3,7 @@ import {sass} from '@stencil/sass'
 
 export const config: Config = {
   namespace: 'stenbook',
-  globalStyle: 'src/theme/global.css',
+  globalStyle: 'src/css/global.scss',
   taskQueue: 'async',
   outputTargets: [
     {
@@ -20,7 +20,7 @@ export const config: Config = {
   ],
   plugins: [
     sass({
-      injectGlobalPaths: ['src/theme/snippets'],
+      injectGlobalPaths: ['src/css/snippets'],
     }),
   ],
 }
