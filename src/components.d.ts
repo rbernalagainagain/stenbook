@@ -15,7 +15,6 @@ export namespace Components {
     role: string
     value?: Value
   }
-  interface MrhCard {}
   interface MyComponent {
     /**
      * The first name
@@ -51,11 +50,6 @@ declare global {
     prototype: HTMLMrbSelectOptionElement
     new (): HTMLMrbSelectOptionElement
   }
-  interface HTMLMrhCardElement extends Components.MrhCard, HTMLStencilElement {}
-  var HTMLMrhCardElement: {
-    prototype: HTMLMrhCardElement
-    new (): HTMLMrhCardElement
-  }
   interface HTMLMyComponentElement
     extends Components.MyComponent,
       HTMLStencilElement {}
@@ -67,7 +61,6 @@ declare global {
     'app-root': HTMLAppRootElement
     'mrb-select': HTMLMrbSelectElement
     'mrb-select-option': HTMLMrbSelectOptionElement
-    'mrh-card': HTMLMrhCardElement
     'my-component': HTMLMyComponentElement
   }
 }
@@ -81,7 +74,6 @@ declare namespace LocalJSX {
     role?: string
     value?: Value
   }
-  interface MrhCard {}
   interface MyComponent {
     /**
      * The first name
@@ -100,7 +92,6 @@ declare namespace LocalJSX {
     'app-root': AppRoot
     'mrb-select': MrbSelect
     'mrb-select-option': MrbSelectOption
-    'mrh-card': MrhCard
     'my-component': MyComponent
   }
 }
@@ -113,7 +104,6 @@ declare module '@stencil/core' {
         JSXBase.HTMLAttributes<HTMLMrbSelectElement>
       'mrb-select-option': LocalJSX.MrbSelectOption &
         JSXBase.HTMLAttributes<HTMLMrbSelectOptionElement>
-      'mrh-card': LocalJSX.MrhCard & JSXBase.HTMLAttributes<HTMLMrhCardElement>
       'my-component': LocalJSX.MyComponent &
         JSXBase.HTMLAttributes<HTMLMyComponentElement>
     }
