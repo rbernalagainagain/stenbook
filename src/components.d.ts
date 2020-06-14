@@ -5,16 +5,20 @@
  * It contains typing information for all components that exist in this project.
  */
 import {HTMLStencilElement, JSXBase} from '@stencil/core/internal'
+import {TextFieldTypes} from './components/input/input'
 import {Value} from './types/value'
 export namespace Components {
-  interface AppRoot {}
-  interface MrbSelect {
-    options: any[]
+  interface ImmInput {
+    color?: string
+    disabled: boolean
+    placeholder: string
+    readonly: boolean
+    type: TextFieldTypes
   }
-  interface MrbSelectOption {
-    role: string
+  interface MrbOption {
     value?: Value
   }
+  interface MrbSelect {}
   interface MyComponent {
     /**
      * The first name
@@ -31,10 +35,19 @@ export namespace Components {
   }
 }
 declare global {
-  interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {}
-  var HTMLAppRootElement: {
-    prototype: HTMLAppRootElement
-    new (): HTMLAppRootElement
+  interface HTMLImmInputElement
+    extends Components.ImmInput,
+      HTMLStencilElement {}
+  var HTMLImmInputElement: {
+    prototype: HTMLImmInputElement
+    new (): HTMLImmInputElement
+  }
+  interface HTMLMrbOptionElement
+    extends Components.MrbOption,
+      HTMLStencilElement {}
+  var HTMLMrbOptionElement: {
+    prototype: HTMLMrbOptionElement
+    new (): HTMLMrbOptionElement
   }
   interface HTMLMrbSelectElement
     extends Components.MrbSelect,
@@ -42,13 +55,6 @@ declare global {
   var HTMLMrbSelectElement: {
     prototype: HTMLMrbSelectElement
     new (): HTMLMrbSelectElement
-  }
-  interface HTMLMrbSelectOptionElement
-    extends Components.MrbSelectOption,
-      HTMLStencilElement {}
-  var HTMLMrbSelectOptionElement: {
-    prototype: HTMLMrbSelectOptionElement
-    new (): HTMLMrbSelectOptionElement
   }
   interface HTMLMyComponentElement
     extends Components.MyComponent,
@@ -58,22 +64,25 @@ declare global {
     new (): HTMLMyComponentElement
   }
   interface HTMLElementTagNameMap {
-    'app-root': HTMLAppRootElement
+    'imm-input': HTMLImmInputElement
+    'mrb-option': HTMLMrbOptionElement
     'mrb-select': HTMLMrbSelectElement
-    'mrb-select-option': HTMLMrbSelectOptionElement
     'my-component': HTMLMyComponentElement
   }
 }
 declare namespace LocalJSX {
-  interface AppRoot {}
-  interface MrbSelect {
-    options?: any[]
+  interface ImmInput {
+    color?: string
+    disabled?: boolean
+    placeholder?: string
+    readonly?: boolean
+    type?: TextFieldTypes
   }
-  interface MrbSelectOption {
+  interface MrbOption {
     onClickOption?: (event: CustomEvent<string>) => void
-    role?: string
     value?: Value
   }
+  interface MrbSelect {}
   interface MyComponent {
     /**
      * The first name
@@ -89,9 +98,9 @@ declare namespace LocalJSX {
     middle?: string
   }
   interface IntrinsicElements {
-    'app-root': AppRoot
+    'imm-input': ImmInput
+    'mrb-option': MrbOption
     'mrb-select': MrbSelect
-    'mrb-select-option': MrbSelectOption
     'my-component': MyComponent
   }
 }
@@ -99,11 +108,12 @@ export {LocalJSX as JSX}
 declare module '@stencil/core' {
   export namespace JSX {
     interface IntrinsicElements {
-      'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>
+      'imm-input': LocalJSX.ImmInput &
+        JSXBase.HTMLAttributes<HTMLImmInputElement>
+      'mrb-option': LocalJSX.MrbOption &
+        JSXBase.HTMLAttributes<HTMLMrbOptionElement>
       'mrb-select': LocalJSX.MrbSelect &
         JSXBase.HTMLAttributes<HTMLMrbSelectElement>
-      'mrb-select-option': LocalJSX.MrbSelectOption &
-        JSXBase.HTMLAttributes<HTMLMrbSelectOptionElement>
       'my-component': LocalJSX.MyComponent &
         JSXBase.HTMLAttributes<HTMLMyComponentElement>
     }

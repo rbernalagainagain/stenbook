@@ -1,12 +1,12 @@
 /* Basic CSS for apps built */
-@import 'structure.css';
 @import 'normalize.css';
+@import 'structure.css';
 @import 'typography.css';
 
 :root {
   /* Spacing */
 
-  --unit: 0.5rem;
+  --unit: 0.4rem;
   --extra-small: calc(var(--unit) * 1);
   --small: calc(var(--unit) * 1.5);
   --medium: calc(var(--unit) * 3);
@@ -26,7 +26,10 @@
   --subtitle-size: 7.5rem;
 
   /* Principal Colors */
-  --primary-color: hsl(210, 55%, 45%);
+  /* Principal Colors */
+  --primary-color: hsl(19, 92%, 62%);
+  --secondary-color: hsl(187, 33%, 62%);
+  --tertiary-color: hsl(187, 33%, 62%);
   --error-color: hsl(350, 100%, 57%);
   --warning-color: hsl(39, 100%, 47%);
 

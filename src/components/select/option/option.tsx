@@ -12,25 +12,22 @@ import {
 import {Value} from '../../../types/value'
 
 @Component({
-  tag: 'mrb-select-option',
-  styleUrl: 'select-option.scss',
+  tag: 'mrb-option',
+  styles: ':host { display: block; }',
   shadow: true,
 })
-export class SelectOption implements ComponentInterface {
-  @Element() el!: HTMLElement
+export class Option implements ComponentInterface {
+  @Element() el!: HTMLOptionElement
 
   @Prop() value?: Value
-  @Prop({reflect: true}) role = 'option'
-
   @Event() clickOption: EventEmitter<string>
 
   @Listen('click')
   clickOptionHandler() {
-    this.el.setAttribute('aria-selected', 'true')
     this.clickOption.emit(this.value || this.el.textContent)
   }
 
   render() {
-    return <Host tabindex={0} />
+    return <Host />
   }
 }

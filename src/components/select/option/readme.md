@@ -4,10 +4,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `role`   | `role`    |             | `string` | `'option'`  |
-| `value`  | `value`   |             | `any`    | `undefined` |
+| Property | Attribute | Description | Type  | Default     |
+| -------- | --------- | ----------- | ----- | ----------- |
+| `value`  | `value`   |             | `any` | `undefined` |
 
 ## Events
 

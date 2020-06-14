@@ -4,11 +4,8 @@ import {
   Element,
   h,
   Host,
-  Prop,
   State,
 } from '@stencil/core'
-
-export type Visible = boolean
 
 @Component({
   tag: 'mrb-select',
@@ -18,9 +15,6 @@ export type Visible = boolean
 export class Select implements ComponentInterface {
   @Element() el: HTMLMrbSelectElement
 
-  @Prop() options: any[]
-
-  @State() value?: string
   @State() isExpanded = false
 
   idOption = 'combobox'
@@ -57,11 +51,7 @@ export class Select implements ComponentInterface {
           type="text"
           name={this.idOption}
           ref={(el: HTMLInputElement) => (this.input = el)}
-          onInput={() => (this.value = this.input.value)}
-          class="input-combobox"
-          placeholder={'ds'}
         />
-        <ion-icon className="icon" name={'caret-down-outline'} />
         <div class={{'options-list': true}}></div>
       </Host>
     )
