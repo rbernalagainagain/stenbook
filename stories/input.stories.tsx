@@ -1,10 +1,13 @@
+import {text} from '@storybook/addon-knobs'
+import {withA11y} from '@storybook/addon-a11y'
+
 export default {
-  title: 'Input',
+  title: 'my-input',
+  component: 'my-input',
+  decorators: [withA11y],
 }
 
 export const Input = () => {
-  // const firstName = text('First name', 'Stencil')
-  // const middleName = text('Middle name', 'Storybook')
-  // const lastName = text('Last name', 'Starter')
-  return `<imm-input placeholder="Casa" tabindex="0" />`
+  const label = text('Label', 'Products')
+  return `<my-input label-text=${label}  />`
 }

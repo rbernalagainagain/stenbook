@@ -1,49 +1,220 @@
-/* Basic CSS for apps built */
-@import 'normalize.css';
-@import 'structure.css';
-@import 'typography.css';
-
 :root {
-  /* Spacing */
+  --size: 8px;
 
-  --unit: 0.4rem;
-  --extra-small: calc(var(--unit) * 1);
-  --small: calc(var(--unit) * 1.5);
-  --medium: calc(var(--unit) * 3);
-  --big: calc(var(--unit) * 4);
-  --large: calc(var(--unit) * 5);
-  --extra-large: calc(var(--unit) * 6);
+  --error-color: #d0021b;
+  --hint-color: #707070;
 
-  /* Misc */
-  --radius: 5px;
-  --disabled-opacity: 0.4;
-  --header-height: 56px;
+  --bg-input: #fafafa;
+  --bg-white: #ffffff;
 
-  /* Fonts */
-  --font: 'Montserrat', sans-serif;
-  --body-size: 1rem;
-  --title-size: 1.125rem;
-  --subtitle-size: 7.5rem;
+  --font-size-2: 0.125rem;
+  --font-size-10: 0.65rem;
+  --font-size-12: 0.75rem;
+  --font-size-14: 0.87rem;
+  --font-size-16: 1rem;
+  --font-size-18: 1.12rem;
+  --font-size-20: 1.25rem;
+  --font-size-22: 1.37rem;
+  --font-size-24: 1.5rem;
+  --font-size-30: 1.87rem;
+  --font-size-32: 2rem;
+  --font-size-36: 2.25rem;
+  --font-size-40: 2.5em;
+  --font-size-48: 3rem;
 
-  /* Principal Colors */
-  /* Principal Colors */
-  --primary-color: hsl(19, 92%, 62%);
-  --secondary-color: hsl(187, 33%, 62%);
-  --tertiary-color: hsl(187, 33%, 62%);
-  --error-color: hsl(350, 100%, 57%);
-  --warning-color: hsl(39, 100%, 47%);
+  --font-roboto: 'Roboto', sans-serif;
 
-  /* Colors */
-  --white-color: hsla(0, 0%, 100%, 1);
-  --black-color: hsl(0, 0%, 20%);
-  --red-color: hsl(12, 96%, 35%);
-  --gold-color: hsl(49, 100%, 90%);
-  --gold-200-color: hsl(39, 100%, 93%);
-  --gray-color: hsl(0, 0%, 44%);
-  --gray-300-color: hsl(200, 30%, 96%);
-  --gray-500-color: hsl(0, 0%, 80%);
-  --gray-900-color: hsl(0, 0%, 70%);
+  --ic-nude: #ecd2b9;
 
-  /* Shadows */
-  --shadow: 0 2px 7px 1px hsla(240, 1%, 86%, 0.65);
+  --label-font-grey: #888888;
+  --border-bottom-input: #c7c7c7;
+
+  --border-label-resume: #307f7f;
+
+  --ic-light-grey: #f5f5f5;
+  --ic-black: #1b1b1b;
+  --ic-grey-25: #1b1b1b43;
+
+  --ic-white: rgb(255, 255, 255);
+  --ic-white-75: hsla(0, 0%, 100%, 0.97);
+
+  --ic-accent: #307f7f;
+  --ic-accent-85: #286d6d;
+
+  --ic-hired: #6ac408;
+  --ic-inprocess: #f8e71c;
+
+  --ic-body-color: var(--ic-white);
+
+  --nav-max-width: 1224px;
+  --page-max-width: 980px;
+  --page-max-offer: 750px;
+  --splash-max-width: 1440px;
+
+  --modal-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+  --modal-shadow-inverted: 0 -1px transparent inset,
+    0 -1px 3px rgba(34, 25, 25, 0.4);
+  --navigation-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-text-fill-color: initial;
+}
+
+html {
+  font-size: 100% !important;
+}
+
+body {
+  font-family: var(--font-roboto) !important;
+  background-color: var(--ic-body-color) !important;
+  line-height: 1.9 !important;
+  font-size: 100% !important;
+  height: 100%;
+  /* Avoid the IE 10-11 `min-height` bug. */
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  min-height: auto;
+}
+
+.ic-theme-content {
+  flex: 1 0 auto;
+  /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+}
+
+.ic-theme-footer {
+  flex-shrink: 0;
+  /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+}
+
+/*
+ * only suppress the focus ring once what-input has successfully started
+ */
+
+/* suppress focus ring on form controls for mouse users */
+[data-whatintent='mouse'] *:focus {
+  outline: none !important;
+}
+
+/* adds focus ring on elements for keyboard users */
+[data-whatintent='keyboard'] *:focus,
+[data-whatintent='keyboard'] input:focus + label::before,
+[data-whatintent='keyboard'] input[type='radio']:focus + label,
+[data-whatintent='keyboard'] input[type='checkbox']:focus + label {
+  outline: 1px dotted #212121 !important;
+  outline: 5px auto -webkit-focus-ring-color !important;
+  outline: 5px auto -webkit-browser-ring-color !important;
+  outline-offset: initial !important;
+}
+
+/*a:focus,
+button:focus,
+input:focus {
+  outline: none;
+}
+
+body.user-is-tabbing *:focus,
+body.user-is-tabbing a:focus,
+body.user-is-tabbing button:focus,
+body.user-is-tabbing input:focus+label::before,
+body.user-is-tabbing input[type=radio]:focus+label,
+body.user-is-tabbing input[type=checkbox]:focus+label {
+  outline: 1px dotted #307F7F !important;
+  outline-offset: inherit !important;
+}*/
+
+#hrefFm {
+  display: none;
+}
+
+a,
+a:hover,
+a:focus {
+  color: inherit !important;
+  text-decoration: inherit !important;
+}
+
+.nav-bar .link {
+  padding: 0 calc(var(--size) * 2);
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  vertical-align: initial !important;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+.content-button {
+  display: flex;
+  justify-content: flex-end;
+}
+//old design
+/* .content-button > .add-button {
+  font-size: var(--font-size-14);
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  border-bottom: 1px solid var(--ic-black);
+  background-color: transparent;
+} */
+
+.content-button > .add-button {
+  font-size: var(--font-size-12);
+  background-color: var(--ic-accent);
+  font-family: var(--font-roboto);
+  color: var(--bg-white);
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  letter-spacing: 0.26px;
+  text-transform: uppercase;
+  padding: 8px 16.5px 7px;
+  border-radius: 3px;
+  line-height: 1.2;
+
+  &:hover {
+    background-color: #135050;
+  }
+
+  &:disabled {
+    background-color: #ededed;
+    color: var(--hint-color) !important;
+    cursor: not-allowed;
+  }
+}
+
+.horizontal-separator-xs {
+  margin: 0 auto;
+  width: 28px;
+  height: 2px;
+  border: solid 1px #979797;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.ic-hidden {
+  display: none;
 }

@@ -29,31 +29,38 @@
     "check-format": "npm run prettier -- --list-different",
     "story": "npm-run-all --parallel start.watch storybook",
     "storybook": "start-storybook -p 6006 -c .storybook -s www",
-    "validate": "npm-run-all --parallel format test lint build"
+    "validate": "npm-run-all --parallel format test lint build",
+    "build-storybook": "build-storybook -s public",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
+    "@babel/core": "^7.10.3",
     "@stencil/core": "^1.14.0",
-    "@stencil/sass": "^1.3.1",
+    "@stencil/sass": "^1.3.2",
+    "@storybook/addon-a11y": "^5.3.19",
     "@storybook/addon-centered": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/addon-notes": "^5.3.19",
+    "@storybook/addon-storysource": "^5.3.19",
+    "@storybook/addon-viewport": "^5.3.19",
     "@storybook/html": "^5.3.19",
     "@types/jest": "26.0.0",
     "@types/puppeteer": "3.0.0",
-    "@typescript-eslint/eslint-plugin": "^3.2.0",
-    "@typescript-eslint/parser": "^3.2.0",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
     "babel-loader": "^8.1.0",
-    "eslint": "^7.2.0",
+    "eslint": "^7.3.0",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
     "jest": "26.0.1",
     "jest-cli": "26.0.1",
-    "lint-staged": "^10.2.10",
+    "lint-staged": "^10.2.11",
     "npm-check-updates": "^7.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
-    "puppeteer": "3.3.0"
+    "puppeteer": "4.0.0"
   },
   "husky": {
     "hooks": {
@@ -65,6 +72,11 @@
       "npm run format",
       "git add"
     ]
+  },
+  "storybook-deployer": {
+    "gitUsername": "rbernalber",
+    "gitEmail": "rbernal86@gmail.com",
+    "commitMessage": "Deploy Storybook [skip ci]"
   },
   "license": "MIT",
   "dependencies": {}

@@ -11,6 +11,10 @@ export const config: Config = {
       esmLoaderPath: '../loader',
     },
     {
+      type: 'docs-vscode',
+      file: 'custom-elements.json',
+    },
+    {
       type: 'docs-readme',
     },
     {
