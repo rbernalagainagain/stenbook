@@ -21,59 +21,6 @@
           "description": "The middle name"
         }
       ]
-    },
-    {
-      "name": "my-input",
-      "description": {
-        "kind": "markdown",
-        "value": ""
-      },
-      "attributes": [
-        {
-          "name": "autocomplete",
-          "description": ""
-        },
-        {
-          "name": "disabled",
-          "description": ""
-        },
-        {
-          "name": "is-valid",
-          "description": ""
-        },
-        {
-          "name": "label-text",
-          "description": ""
-        },
-        {
-          "name": "max-length",
-          "description": ""
-        },
-        {
-          "name": "name",
-          "description": ""
-        },
-        {
-          "name": "only-numbers",
-          "description": ""
-        },
-        {
-          "name": "prevent-return",
-          "description": ""
-        },
-        {
-          "name": "required",
-          "description": ""
-        },
-        {
-          "name": "type-text",
-          "description": ""
-        },
-        {
-          "name": "value",
-          "description": ""
-        }
-      ]
     }
   ]
 }
